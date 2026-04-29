@@ -9,7 +9,7 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'sqlite',
-        database: 'database.db',
+        database: process.env.DATABASE_URL ?? 'database.db',
         entities: [CompanyEntity, ProductEntity],
         synchronize: true,
       });
